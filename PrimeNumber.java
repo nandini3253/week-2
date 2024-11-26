@@ -1,32 +1,22 @@
-import java.util.Scanner;
-
 public class PrimeNumber {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        int number = 29; // Predefined number
 
-        // Input a number
-        System.out.print("Enter a number: ");
-        int number = scanner.nextInt();
-
+        // Check if the number is prime
         if (isPrime(number)) {
-            System.out.println(number + " is a prime no");
+            System.out.println(number + " is a prime number.");
         } else {
-            System.out.println(number + " is not a prime no");
+            System.out.println(number + " is not a prime number.");
         }
-
-        scanner.close();
     }
 
     // Method to check if a number is prime
     public static boolean isPrime(int num) {
-        // Handle edge cases
-        if (num <= 1) return false; // 0 and 1 are not prime numbers
-        if (num <= 3) return true;  // 2 and 3 are prime numbers
+        if (num <= 1) return false; // 0 and 1 are not prime
+        if (num <= 3) return true;  // 2 and 3 are prime
 
-        // Eliminate even numbers and multiples of 3
-        if (num % 2 == 0 || num % 3 == 0) return false;
+        if (num % 2 == 0 || num % 3 == 0) return false; // Eliminate even numbers and multiples of 3
 
-        // Check for factors up to the square root of num
         for (int i = 5; i * i <= num; i += 6) {
             if (num % i == 0 || num % (i + 2) == 0) return false;
         }
